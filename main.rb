@@ -109,7 +109,7 @@ class Board
   end
 end
 
-
+puts "\r\n"
 puts 'Welcome to Mastermind: a code breaking game between you and the computer.'
 puts 'You can choose to be either the code maker, or code breaker.'
 puts 'The code maker creates a 4 digit code using numbers from 1 to 6. Duplicates are allowed.'
