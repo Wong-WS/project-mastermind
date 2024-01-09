@@ -25,6 +25,21 @@ class PlayerBreaker
   end
 end
 
+class PlayerMaker
+  include Common
+  attr_accessor :player_input_code, :comp_input_code
+
+  def initialize
+    @player_input_code = []
+    @comp_input_code = []
+  end
+
+  def first_guess
+    @comp_input_code = Array.new(4) { rand(1..6) }
+    puts "#{@comp_input_code}"
+  end
+end
+
 class Game
   attr_accessor :board
 
@@ -40,6 +55,7 @@ class Board
     @secret_code = []
     @winner = false
     @player_breaker = PlayerBreaker.new
+    @player_maker = PlayerMaker.new
 
     puts "Enter 1 to be the code breaker or 2 to be the code maker."
     @player_choice = gets.chomp
@@ -65,6 +81,11 @@ class Board
       @turn_count += 1
     end
     result
+  end
+
+  def play_player_maker
+    @player_maker.player_input
+    @player_maker.first_guess
   end
 
 
